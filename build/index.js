@@ -60,7 +60,7 @@ var withPropsTracking = function (WrappedComponent) {
                 return renderWrapperComponent(props);
             }
             // log component name
-            console.group(WrappedComponent.name + " component props:");
+            console.log("%c" + (WrappedComponent.name + " component props:"), "font-weight:bold;");
             var propsToLog = {};
             if (wrapperProps.trackedProps &&
                 wrapperProps.trackedProps.length > 0) {
@@ -84,7 +84,6 @@ var withPropsTracking = function (WrappedComponent) {
                 propsToLog = __assign({}, props);
             }
             logProps(propsToLog, wrapperProps.logType);
-            console.groupEnd();
             return renderWrapperComponent(props);
         };
     };
