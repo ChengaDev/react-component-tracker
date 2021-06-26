@@ -1,6 +1,6 @@
 {
     "name": "react-component-tracker",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Tracking react component props easily",
     "main": "build/index.js",
     "scripts": {
