@@ -1,6 +1,5 @@
 import withPropsTracking from "./components/TrackedComponent";
-import LogTypeEnum from "./enums/LogTypeEnum";
+import LogType from "./enums/LogType";
 import DevelopmentMode from "./enums/DevelopmentMode";
 
-export { LogTypeEnum, DevelopmentMode };
-export default withPropsTracking;
+export default { withPropsTracking, LogType, DevelopmentMode };

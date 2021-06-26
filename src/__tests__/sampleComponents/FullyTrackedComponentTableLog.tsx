@@ -1,7 +1,7 @@
 import React from "react";
 import withPropsTracking from "../../components/TrackedComponent";
-import DevelopmentModeEnum from "../../enums/DevelopmentMode";
-import LogTypeEnum from "../../enums/LogTypeEnum";
+import DevelopmentMode from "../../enums/DevelopmentMode";
+import LogType from "../../enums/LogType";
 import TestComponentProps from "../sampleInterfaces/TestComponentProps";
 
 const FullyTrackedComponentTableLog = (props: TestComponentProps) => {
@@ -14,8 +14,8 @@ const FullyTrackedComponentTableLog = (props: TestComponentProps) => {
 };
 
 export default withPropsTracking(FullyTrackedComponentTableLog)({
-    mode: DevelopmentModeEnum.Development,
+    mode: DevelopmentMode.Development,
     ignoredProps: null,
     trackedProps: [],
-    logType: LogTypeEnum.Table
+    logType: LogType.Table
 });

@@ -5,7 +5,6 @@ import UnTrackedComponentProductionMode from "../sampleComponents/UnTrackedCompo
 import UnTrackedComponentNoMode from "../sampleComponents/UnTrackedComponentNoMode";
 import SinglePropTrackedComponent from "../sampleComponents/SinglePropTrackedComponent";
 import SinglePropIgnoredComponent from "../sampleComponents/SinglePropIgnoredComponent";
-import FullyTrackedComponentListLog from "../sampleComponents/FullyTrackedComponentListLog";
 import FullyTrackedComponentTableLog from "../sampleComponents/FullyTrackedComponentTableLog";
 
 afterEach(() => {
@@ -14,7 +13,6 @@ afterEach(() => {
 
 let consoleLogSpy = jest.spyOn(console, "log");
 let consoleGroupSpy = jest.spyOn(console, "group");
-let consoleListSpy = jest.spyOn(console, "dir");
 let consoleTableSpy = jest.spyOn(console, "table");
 
 describe("TrackedComponent tests", () => {
@@ -70,17 +68,6 @@ describe("TrackedComponent tests", () => {
             // Assert
             expect(consoleGroupSpy).toHaveBeenCalledTimes(1);
             expect(consoleTableSpy).toHaveBeenCalledTimes(1);
-        });
-
-        test("Should log as list", () => {
-            // Arrange
-            renderer.create(
-                <FullyTrackedComponentListLog prop1="chen" prop2="gazit" />
-            );
-
-            // Assert
-            expect(consoleGroupSpy).toHaveBeenCalledTimes(1);
-            expect(consoleListSpy).toHaveBeenCalledTimes(1);
         });
     });
 

@@ -1,7 +1,7 @@
 import React from "react";
 import TrackedComponentProps from "../interfaces/TrackedComponentProps";
-import DevelopmentModeEnum from "../enums/DevelopmentMode";
-import LogTypeEnum from "../enums/LogTypeEnum";
+import DevelopmentMode from "../enums/DevelopmentMode";
+import LogType from "../enums/LogType";
 
 const withPropsTracking =
     (WrappedComponent: React.ComponentType<any>) =>
@@ -15,7 +15,7 @@ const withPropsTracking =
             // if this is production context - return
             if (
                 !mode ||
-                mode === DevelopmentModeEnum.Production ||
+                mode === DevelopmentMode.Production ||
                 process.env["NODE_ENV"] === "production"
             ) {
                 return renderWrapperComponent(props);
@@ -57,8 +57,8 @@ const withPropsTracking =
 
 export default withPropsTracking;
 
-const logProps = (props: any, logType?: LogTypeEnum) => {
-    if (logType === LogTypeEnum.Table) {
+const logProps = (props: any, logType?: LogType) => {
+    if (logType === LogType.Table) {
         console.table(props);
     } else {
         Object.keys(props).forEach((propKey) =>

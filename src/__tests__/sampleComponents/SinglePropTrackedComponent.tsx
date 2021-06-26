@@ -1,7 +1,7 @@
 import React from "react";
 import withPropsTracking from "../../components/TrackedComponent";
-import DevelopmentModeEnum from "../../enums/DevelopmentMode";
-import LogTypeEnum from "../../enums/LogTypeEnum";
+import DevelopmentMode from "../../enums/DevelopmentMode";
+import LogType from "../../enums/LogType";
 import TestComponentProps from "../sampleInterfaces/TestComponentProps";
 
 const SinglePropTrackedComponent = (props: TestComponentProps) => {
@@ -14,8 +14,8 @@ const SinglePropTrackedComponent = (props: TestComponentProps) => {
 };
 
 export default withPropsTracking(SinglePropTrackedComponent)({
-    mode: DevelopmentModeEnum.Development,
+    mode: DevelopmentMode.Development,
     ignoredProps: null,
     trackedProps: ["prop1"],
-    logType: LogTypeEnum.PropPerLine
+    logType: LogType.PropPerLine
 });

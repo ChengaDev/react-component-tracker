@@ -1,6 +1,6 @@
-enum LogTypeEnum {
+enum LogType {
     Table = "table",
     PropPerLine = "propPerLine"
 }
 
-export default LogTypeEnum;
+export default LogType;

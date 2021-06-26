@@ -1,6 +1,6 @@
 import React from "react";
 import withPropsTracking from "../../components/TrackedComponent";
-import DevelopmentModeEnum from "../../enums/DevelopmentMode";
+import DevelopmentMode from "../../enums/DevelopmentMode";
 import TestComponentProps from "../sampleInterfaces/TestComponentProps";
 
 const FullyTrackedComponent = (props: TestComponentProps) => {
@@ -13,7 +13,7 @@ const FullyTrackedComponent = (props: TestComponentProps) => {
 };
 
 export default withPropsTracking(FullyTrackedComponent)({
-    mode: DevelopmentModeEnum.Development,
+    mode: DevelopmentMode.Development,
     ignoredProps: null,
     trackedProps: []
 });

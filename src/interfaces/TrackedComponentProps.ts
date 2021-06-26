@@ -1,11 +1,11 @@
-import DevelopmentModeEnum from "../enums/DevelopmentMode";
-import LogTypeEnum from "../enums/LogTypeEnum";
+import DevelopmentMode from "../enums/DevelopmentMode";
+import LogType from "../enums/LogType";
 
 interface TrackedComponentProps {
-    mode?: DevelopmentModeEnum;
+    mode?: DevelopmentMode;
     trackedProps?: Array<string> | null;
     ignoredProps?: Array<string> | null;
-    logType?: LogTypeEnum;
+    logType?: LogType;
 }
 
 export default TrackedComponentProps;
