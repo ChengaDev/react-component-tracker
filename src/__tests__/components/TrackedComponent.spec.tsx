@@ -60,6 +60,28 @@ describe("TrackedComponent tests", () => {
             expect(consoleGroupSpy).toHaveBeenCalledTimes(1);
             expect(consoleLogSpy).toHaveBeenCalledTimes(1);
         });
+
+        test("Should log as table", () => {
+            // Arrange
+            renderer.create(
+                <FullyTrackedComponentTableLog prop1="chen" prop2="gazit" />
+            );
+
+            // Assert
+            expect(consoleGroupSpy).toHaveBeenCalledTimes(1);
+            expect(consoleTableSpy).toHaveBeenCalledTimes(1);
+        });
+
+        test("Should log as list", () => {
+            // Arrange
+            renderer.create(
+                <FullyTrackedComponentListLog prop1="chen" prop2="gazit" />
+            );
+
+            // Assert
+            expect(consoleGroupSpy).toHaveBeenCalledTimes(1);
+            expect(consoleListSpy).toHaveBeenCalledTimes(1);
+        });
     });
 
     describe("Production mode", () => {

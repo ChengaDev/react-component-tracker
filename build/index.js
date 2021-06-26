@@ -103,5 +103,7 @@ var logProps = function (props) {
     }
 };
 
+exports.DevelopmentMode = DevelopmentModeEnum;
+exports.LogTypeEnum = LogTypeEnum$1;
 exports.default = withPropsTracking;
 //# sourceMappingURL=index.js.map
