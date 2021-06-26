@@ -3,6 +3,7 @@
     "version": "1.0.6",
     "description": "Tracking react component props easily",
     "main": "build/index.js",
+    "types": "build/index.d.ts",
     "scripts": {
         "build": "rollup -c",
         "test": "jest",

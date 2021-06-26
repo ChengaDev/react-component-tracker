@@ -39,15 +39,14 @@ var DevelopmentMode;
     DevelopmentMode["Production"] = "PRODUCTION";
     DevelopmentMode["Development"] = "DEVELOPMENT";
 })(DevelopmentMode || (DevelopmentMode = {}));
-var DevelopmentModeEnum = DevelopmentMode;
+var DevelopmentMode$1 = DevelopmentMode;
 
-var LogTypeEnum;
-(function (LogTypeEnum) {
-    LogTypeEnum["Table"] = "table";
-    LogTypeEnum["PropPerLine"] = "propPerLine";
-    LogTypeEnum["List"] = "list";
-})(LogTypeEnum || (LogTypeEnum = {}));
-var LogTypeEnum$1 = LogTypeEnum;
+var LogType;
+(function (LogType) {
+    LogType["Table"] = "table";
+    LogType["PropPerLine"] = "propPerLine";
+})(LogType || (LogType = {}));
+var LogType$1 = LogType;
 
 var withPropsTracking = function (WrappedComponent) {
     return function (wrapperProps) {
@@ -56,7 +55,7 @@ var withPropsTracking = function (WrappedComponent) {
         return function (props) {
             // if this is production context - return
             if (!mode ||
-                mode === DevelopmentModeEnum.Production ||
+                mode === DevelopmentMode$1.Production ||
                 process.env["NODE_ENV"] === "production") {
                 return renderWrapperComponent(props);
             }
@@ -85,15 +84,13 @@ var withPropsTracking = function (WrappedComponent) {
                 propsToLog = __assign({}, props);
             }
             logProps(propsToLog, wrapperProps.logType);
+            console.groupEnd();
             return renderWrapperComponent(props);
         };
     };
 };
 var logProps = function (props, logType) {
-    if (logType === LogTypeEnum$1.List) {
-        console.dir(props);
-    }
-    else if (logType === LogTypeEnum$1.Table) {
+    if (logType === LogType$1.Table) {
         console.table(props);
     }
     else {
@@ -103,7 +100,7 @@ var logProps = function (props, logType) {
     }
 };
 
-exports.DevelopmentMode = DevelopmentModeEnum;
-exports.LogTypeEnum = LogTypeEnum$1;
-exports.default = withPropsTracking;
+var index = { withPropsTracking: withPropsTracking, LogType: LogType$1, DevelopmentMode: DevelopmentMode$1 };
+
+exports.default = index;
 //# sourceMappingURL=index.js.map
