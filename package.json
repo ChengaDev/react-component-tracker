@@ -1,9 +1,17 @@
 {
     "name": "react-component-tracker",
     "version": "1.0.12",
-    "description": "Tracking react component props easily",
+    "description": "Easily track components props without using breakpoints, console.log manually or debugger.",
     "main": "build/index.js",
     "types": "build/index.d.ts",
+    "keywords": [
+        "component",
+        "react",
+        "props",
+        "debug",
+        "console",
+        "log"
+    ],
     "scripts": {
         "build": "rollup -c",
         "test": "jest",
