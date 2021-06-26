@@ -22,7 +22,10 @@ const withPropsTracking =
             }
 
             // log component name
-            console.group(`${WrappedComponent.name} component props:`);
+            console.log(
+                "%c" + `${WrappedComponent.name} component props:`,
+                "font-weight:bold;"
+            );
 
             let propsToLog: any = {};
             if (
@@ -49,7 +52,6 @@ const withPropsTracking =
             }
 
             logProps(propsToLog, wrapperProps.logType);
-            console.groupEnd();
 
             return renderWrapperComponent(props);
         };

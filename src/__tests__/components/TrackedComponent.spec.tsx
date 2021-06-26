@@ -12,8 +12,6 @@ afterEach(() => {
 });
 
 let consoleLogSpy = jest.spyOn(console, "log");
-let consoleGroupSpy = jest.spyOn(console, "group");
-let consoleTableSpy = jest.spyOn(console, "table");
 
 describe("TrackedComponent tests", () => {
     describe("Development mode", () => {
@@ -33,8 +31,7 @@ describe("TrackedComponent tests", () => {
             expect(renderedComponent.props.prop1).toBe("chen");
             expect(renderedComponent.props.prop2).toBe("gazit");
 
-            expect(consoleGroupSpy).toHaveBeenCalledTimes(1);
-            expect(consoleLogSpy).toHaveBeenCalledTimes(2);
+            expect(consoleLogSpy).toHaveBeenCalledTimes(3);
         });
 
         test("Should log only tracked props", () => {
@@ -44,8 +41,7 @@ describe("TrackedComponent tests", () => {
             );
 
             // Assert
-            expect(consoleGroupSpy).toHaveBeenCalledTimes(1);
-            expect(consoleLogSpy).toHaveBeenCalledTimes(1);
+            expect(consoleLogSpy).toHaveBeenCalledTimes(2);
         });
 
         test("Should log only un-ignored props", () => {
@@ -55,8 +51,7 @@ describe("TrackedComponent tests", () => {
             );
 
             // Assert
-            expect(consoleGroupSpy).toHaveBeenCalledTimes(1);
-            expect(consoleLogSpy).toHaveBeenCalledTimes(1);
+            expect(consoleLogSpy).toHaveBeenCalledTimes(2);
         });
 
         test("Should log as table", () => {
@@ -66,8 +61,7 @@ describe("TrackedComponent tests", () => {
             );
 
             // Assert
-            expect(consoleGroupSpy).toHaveBeenCalledTimes(1);
-            expect(consoleTableSpy).toHaveBeenCalledTimes(1);
+            expect(consoleLogSpy).toHaveBeenCalledTimes(2);
         });
     });
 
@@ -79,7 +73,6 @@ describe("TrackedComponent tests", () => {
             );
 
             // Assert
-            expect(consoleGroupSpy).toHaveBeenCalledTimes(0);
             expect(consoleLogSpy).toHaveBeenCalledTimes(0);
         });
     });
@@ -91,7 +84,6 @@ describe("TrackedComponent tests", () => {
                 <UnTrackedComponentNoMode prop1="chen" prop2="gazit" />
             );
 
-            expect(consoleGroupSpy).toHaveBeenCalledTimes(0);
             expect(consoleLogSpy).toHaveBeenCalledTimes(0);
         });
     });

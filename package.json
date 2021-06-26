@@ -1,6 +1,6 @@
 {
     "name": "react-component-tracker",
-    "version": "1.0.6",
+    "version": "1.0.8",
     "description": "Tracking react component props easily",
     "main": "build/index.js",
     "types": "build/index.d.ts",
@@ -40,7 +40,8 @@
         "preset": "ts-jest",
         "testEnvironment": "node",
         "modulePathIgnorePatterns": [
-            "sample"
+            "sample",
+            "spec.d.ts"
         ]
     }
 }
