@@ -1,6 +1,6 @@
 {
     "name": "react-component-tracker",
-    "version": "1.0.14",
+    "version": "1.0.15",
     "description": "Easily track components props without using breakpoints, console.log manually or debugger.",
     "main": "build/index.js",
     "types": "build/index.d.ts",
