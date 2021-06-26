@@ -49,6 +49,7 @@ const withPropsTracking =
             }
 
             logProps(propsToLog, wrapperProps.logType);
+            console.groupEnd();
 
             return renderWrapperComponent(props);
         };
@@ -57,9 +58,7 @@ const withPropsTracking =
 export default withPropsTracking;
 
 const logProps = (props: any, logType?: LogTypeEnum) => {
-    if (logType === LogTypeEnum.List) {
-        console.dir(props);
-    } else if (logType === LogTypeEnum.Table) {
+    if (logType === LogTypeEnum.Table) {
         console.table(props);
     } else {
         Object.keys(props).forEach((propKey) =>

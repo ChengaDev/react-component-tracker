@@ -1,7 +1,6 @@
 enum LogTypeEnum {
     Table = "table",
-    PropPerLine = "propPerLine",
-    List = "list"
+    PropPerLine = "propPerLine"
 }
 
 export default LogTypeEnum;
