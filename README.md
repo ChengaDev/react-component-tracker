@@ -1,4 +1,4 @@
-﻿# react-component-tracker
+# react-component-tracker
 
 Easily track components props without using breakpoints, `console.log` manually or `debugger`.
 
@@ -32,15 +32,15 @@ export default ComponentTracker.withPropsTracking(MyComponent)({
 
 ## API
 
-`mode` - Current development mode, logging occurs only in DEVELOPMENT mode.
+`mode` (Enum) - Current development mode, logging occurs only in DEVELOPMENT mode.
 
-`logType` - The method of logging out the props, table or each prop in a new line.
+`logType` (Enum) - The method of logging out the props, table or each prop in a new line.
 
-`trackedProps` - List of props to track. only those props would be tracked.
+`trackedProps` (Array of strings) - List of props to track. only those props would be tracked. Good usage for `trackedProps` is when you have a component with large number of props, and you want to track only few of them.
 
-`ignoredProps` - List of props to ignore in the log. not relevant if `trackedProps` sent as well.
+`ignoredProps` (Array of strings) - List of props to ignore in the log. not relevant if `trackedProps` sent as well. Good usage for `ignoredProps` is when you have a prop which you don't care about, and holds long value, removing it from the log would help you focus on the props that's actually you care about.
 
-## Logs output
+## Logs types & output (logType options) -
 
 **PropPerLine** -
 
@@ -50,10 +50,16 @@ export default ComponentTracker.withPropsTracking(MyComponent)({
 
 ![table](https://user-images.githubusercontent.com/44297242/123508748-e6699c80-d679-11eb-90cd-7d0ca4853f15.PNG)
 
-## Production mode
+## Production & Development modes
 
-If `mode` is set to `Production`, no logs would be shown.
+Valid options for `mode` are `PRODUCTION` and `DEVLEOPMENT`.
+
+If `mode` is set to `DEVLEOPMENT` - logs would be printed out.
+
+If `mode` is set to `PRODUCTION`, no logs would be shown.
 You don't have to remove the calls for `withPropsTracking` before you deploy to production, since `react-component-tracker` not adding any DOM elements or doing any login in production mode.
+
+**NOTE:** react-component-tracker also considers NODE_ENV to figure out the mode in addition to the user mode setting (if it was set). if NODE_ENV value is `production` - the log won't be printed.
 
 ## License
 
