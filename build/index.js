@@ -84,16 +84,16 @@ var withPropsTracking = function (WrappedComponent) {
                 // if there is not tracked or ignoreed props - log all the props
                 propsToLog = __assign({}, props);
             }
-            logProps(propsToLog);
+            logProps(propsToLog, wrapperProps.logType);
             return renderWrapperComponent(props);
         };
     };
 };
-var logProps = function (props) {
-    if (props.logType === LogTypeEnum$1.List) {
+var logProps = function (props, logType) {
+    if (logType === LogTypeEnum$1.List) {
         console.dir(props);
     }
-    else if (props.logType === LogTypeEnum$1.Table) {
+    else if (logType === LogTypeEnum$1.Table) {
         console.table(props);
     }
     else {
