@@ -2,7 +2,7 @@
     "name": "react-component-tracker",
     "version": "1.0.0",
     "description": "Tracking react component props easily",
-    "main": "index.js",
+    "main": "build/index.js",
     "scripts": {
         "build": "rollup -c",
         "test": "jest",
