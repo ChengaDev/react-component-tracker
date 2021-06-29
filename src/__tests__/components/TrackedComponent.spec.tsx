@@ -9,6 +9,7 @@ import FullyTrackedComponentTableLog from "../sampleComponents/FullyTrackedCompo
 
 afterEach(() => {
     jest.clearAllMocks();
+    process.env.NODE_ENV = "development";
 });
 
 let consoleLogSpy = jest.spyOn(console, "log");
@@ -35,7 +36,7 @@ describe("TrackedComponent tests", () => {
         });
 
         test("Should log only tracked props", () => {
-            // Arrange
+            // Act
             renderer.create(
                 <SinglePropTrackedComponent prop1="chen" prop2="gazit" />
             );
@@ -45,7 +46,7 @@ describe("TrackedComponent tests", () => {
         });
 
         test("Should log only un-ignored props", () => {
-            // Arrange
+            // Act
             renderer.create(
                 <SinglePropIgnoredComponent prop1="chen" prop2="gazit" />
             );
@@ -55,7 +56,7 @@ describe("TrackedComponent tests", () => {
         });
 
         test("Should log as table", () => {
-            // Arrange
+            // Act
             renderer.create(
                 <FullyTrackedComponentTableLog prop1="chen" prop2="gazit" />
             );
@@ -67,9 +68,22 @@ describe("TrackedComponent tests", () => {
 
     describe("Production mode", () => {
         test("Should not call console log at all", () => {
-            // Arrange
+            // Act
             renderer.create(
                 <UnTrackedComponentProductionMode prop1="chen" prop2="gazit" />
+            );
+
+            // Assert
+            expect(consoleLogSpy).toHaveBeenCalledTimes(0);
+        });
+
+        test("Should not call console log at all", () => {
+            // Arrange
+            process.env.NODE_ENV = "production";
+
+            // Act
+            renderer.create(
+                <FullyTrackedComponent prop1="chen" prop2="gazit" />
             );
 
             // Assert

@@ -28,18 +28,12 @@ const withPropsTracking =
             );
 
             let propsToLog: any = {};
-            if (
-                wrapperProps.trackedProps &&
-                wrapperProps.trackedProps.length > 0
-            ) {
+            if (wrapperProps.trackedProps?.length ?? 0 > 0) {
                 // logs only tracked props
-                wrapperProps.trackedProps.forEach((prop) => {
+                wrapperProps.trackedProps?.forEach((prop) => {
                     propsToLog[prop] = props[prop];
                 });
-            } else if (
-                wrapperProps.ignoredProps &&
-                wrapperProps.ignoredProps.length > 0
-            ) {
+            } else if (wrapperProps.ignoredProps?.length ?? 0 > 0) {
                 // ignore props in ignoredProps
                 Object.keys(props).forEach((prop) => {
                     if (!wrapperProps.ignoredProps?.includes(prop)) {
